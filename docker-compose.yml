@@ -6,18 +6,18 @@ services:
       dockerfile: Dockerfile
     ports:
       - "8000:8000"
-    # links:
-    #   - db
+    links:
+      - db
     volumes:
       - .:/usr/app
-  # db:
-  #   image: mysql
-  #   ports:
-  #     - "3001:3306"
-  #   environment:
-  #     - MYSQL_ROOT_PASSWORD=nub78
-  #   volumes:
-  #     - mysqldb:/var/lib/mysql
+  db:
+    image: mysql
+    ports:
+      - "3001:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=nub78
+    volumes:
+      - mysqldb:/var/lib/mysql
 
-# volumes:
-#   mysqldb:
+volumes:
+  mysqldb:
